@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head>
+    <meta charset="UTF-8">
+    <title>DSList | Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+          crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+</head>
+<body>
+  <div class="container">
+      <nav class="navbar navbar-expand-lg" style="background-color: cornflowerblue">
+          <div class="container-fluid">
+              <a class="navbar-brand" href="#">DS Game List</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNav">
+                  <ul class="navbar-nav">
+                      <li class="nav-item">
+                          <a class="nav-link active" aria-current="page" href="#" th:href="@{/home}">Home</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="#" th:href="@{/users}">Usuários</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" th:href="@{/games}">Jogos</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link">Listas de Jogos</a>
+                      </li>
+                  </ul>
+              </div>
+              <div class="d-grid gap-2 d-md-flex justify-content-md-end" sec:authorize="isAuthenticated()">
+                  <a class="btn btn-outline-danger" th:href="@{/logout}">Sair</a>
+              </div>
+          </div>
+      </nav>
+      <h2>Seja bem vindo (a) ao DS Game List</h2>
+      <p>Este é um projeto de estudos, tendo como finalidade a construção de um sistema de login de usuários</p>
+      <p>Tais usuários podem adicionar jogos ao sistema; Criar listar personalizadas de jogos e incluí-los na mesma;
+          deletar jogos e listas; e também atualizar ambos.</p>
+      <p>O sistema de login conta com: Cadastro de usuários com envio de email para ativação de conta;
+          Envio de email para modificação de senha; Login facilitado (OAuth2)</p>
+      <p> Também há dois tipos de papéis de usuário: Administrador, podendo deletar usuários do sistema;
+          e usuário que não tem tal privilégio </p>
+  </div>
+</body>
+</html>

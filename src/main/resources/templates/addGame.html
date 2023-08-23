@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DSGame List | Adicionar jogo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+          crossorigin="anonymous">
+</head>
+<body>
+    <div class = "container col-md-offset-3 col-md-8 mt-lg-5">
+        <form th:action="@{/game}" name="gameAdd" method="post" class="px-4" th:object="${game}">
+            <div class="mb-3 row">
+                <label for="title" class="col-sm-2 col-form-label"></label>
+            </div>
+            <div class="col-sm-6">
+                <input type="text" required class="form-control" id="title" name="title" placeholder="Final Fantasy IX"
+                autofocus="autofocus" th:field="*{title}">
+            </div>
+
+            <div class="mb-3 row">
+                <label for="platforms" class="col-sm-2 col-form-label"></label>
+            </div>
+            <div class="col-sm-6">
+                <input type="text" required class="form-control" id="platforms" name="platforms" placeholder="XBOX, PC, PlayStation"
+                autofocus="autofocus" th:field="*{platforms}">
+            </div>
+
+            <div class="mb-3 row">
+                <label for="shortDescription" class="col-sm-2 col-form-label"></label>
+            </div>
+            <div class="col-sm-6">
+                <input type="text" required class="form-control" id="shortDescription" name="shortDescription" placeholder="Um Dos melhores jogos da franquia"
+                autofocus="autofocus" th:field="*{shortDescription}">
+            </div>
+
+            <div class="mb-3 row">
+                <label for="longDescription" class="col-sm-2 col-form-label"></label>
+            </div>
+            <div class="col-sm-6">
+                <input type="text" required class="form-control" id="longDescription" name="longDescription" placeholder="Sinopse do jogo"
+                autofocus="autofocus" th:field="*{longDescription}">
+            </div>
+
+            <div class="mb-3 row">
+                <label for="genre" class="col-sm-2 col-form-label"></label>
+            </div>
+            <div class="col-sm-6">
+                <input type="text" required class="form-control" id="genre" name="genre" placeholder="RPG de fantasia"
+                autofocus="autofocus" th:field="*{genre}">
+            </div>
+
+            <div class="mb-3 row">
+                <label for="imgUrl" class="col-sm-2 col-form-label"></label>
+            </div>
+            <div class="col-sm-6">
+                <input type="text" required class="form-control" id="imgUrl" name="imgUrl"
+                       placeholder="https://static.gamevicio.com/imagens_itens/big/12/final-fantasy-ix-cover-011523.webp"
+                       autofocus="autofocus" th:field="*{imageUrl}">
+            </div>
+
+            <div class="mb-3 row">
+                <label for="year" class="col-sm-2 col-form-label"></label>
+            </div>
+            <div class="col-sm-6">
+                <input type="number" required class="form-control" id="year" name="year" placeholder="2000"
+                autofocus="autofocus" th:field="*{year}">
+            </div>
+
+            <div class="mb-3 row">
+                <label for="score" class="col-sm-2 col-form-label"></label>
+            </div>
+            <div class="col-sm-6">
+                <input type="number" required class="form-control" id="score" name="score" placeholder="8.8"
+                autofocus="autofocus" th:field="*{score}">
+            </div>
+
+            <div>
+                <button type="submit" class="btn btn-primary">Adicionar jogo</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
