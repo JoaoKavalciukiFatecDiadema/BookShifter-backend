@@ -1,7 +1,7 @@
 package com.example.dslist.controllers;
 
 import com.example.dslist.dto.GameInfo;
-import com.example.dslist.services.GameService;
+import com.example.dslist.services.interfaces.GameService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

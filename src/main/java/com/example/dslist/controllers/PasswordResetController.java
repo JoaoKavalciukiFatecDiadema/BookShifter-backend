@@ -1,15 +1,11 @@
 package com.example.dslist.controllers;
 
-import com.example.dslist.dto.UserDTO;
+
 import com.example.dslist.entities.User;
 import com.example.dslist.events.PasswordRecoveryEvent;
-import com.example.dslist.events.RegistrationCompleteEvent;
-import com.example.dslist.events.listener.PasswordRecoveryEventListener;
-import com.example.dslist.events.listener.RegistrationCompleteEventListener;
-import com.example.dslist.services.PasswordResetTokenService;
-import com.example.dslist.services.UserService;
+import com.example.dslist.services.interfaces.PasswordResetTokenService;
+import com.example.dslist.services.interfaces.UserService;
 import com.example.dslist.utils.UrlUtil;
-import jakarta.mail.MessagingException;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
@@ -20,9 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.io.UnsupportedEncodingException;
 import java.util.Optional;
-import java.util.UUID;
 
 @Controller
 @RequestMapping("/forgot-password")
@@ -49,7 +43,7 @@ public class PasswordResetController {
         if(user.isEmpty()){
             return "redirect:/forgot-password?not_found";
         }
-        //publisher.publishEvent(new PasswordRecoveryEvent(user.get(), UrlUtil.getApplicationUrl(request)));
+        publisher.publishEvent(new PasswordRecoveryEvent(user.get(), UrlUtil.getApplicationUrl(request)));
         return "redirect:/forgot-password?success";
     }
 
