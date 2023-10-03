@@ -3,7 +3,6 @@ package com.example.dslist.services;
 import com.example.dslist.dto.GameInfo;
 import com.example.dslist.dto.MinimalGameInfo;
 import com.example.dslist.entities.Game;
-import com.example.dslist.entities.GameList;
 import com.example.dslist.repositories.GameRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -16,7 +15,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class GameService {
+public class GameService implements com.example.dslist.services.interfaces.GameService {
     @Autowired
     private GameRepository repository;
 
@@ -36,14 +35,6 @@ public class GameService {
         var result = repository.findAll();
         List<MinimalGameInfo> dto = result.stream().map(MinimalGameInfo::new).toList();
         return dto;
-    }
-
-    @Transactional(readOnly = true)
-    public ResponseEntity<List<MinimalGameInfo>> findByList(Long listID){
-        var result = repository.searchByList(listID);
-         List<MinimalGameInfo> games = result.stream().map(MinimalGameInfo::new).toList();
-        return new ResponseEntity<>(games, HttpStatus.OK);
-
     }
 
     public GameInfo addGame(GameInfo dto) {

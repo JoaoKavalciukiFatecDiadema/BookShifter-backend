@@ -13,7 +13,7 @@ import java.util.Calendar;
 import java.util.Optional;
 
 @Service
-public class PasswordResetTokenService {
+public class PasswordResetTokenService implements com.example.dslist.services.interfaces.PasswordResetTokenService {
     @Autowired
     private UserRepository userRepository;
 

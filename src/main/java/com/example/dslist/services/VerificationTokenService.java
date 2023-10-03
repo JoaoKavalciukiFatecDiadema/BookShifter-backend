@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import java.util.Calendar;
 import java.util.Optional;
 @Service
-public class VerificationTokenService {
+public class VerificationTokenService  implements com.example.dslist.services.interfaces.VerificationTokenService {
     @Autowired
     private VerificationTokenRepository repository;
     @Autowired
