@@ -39,7 +39,8 @@ public class Security {
                         "/error",
                         "/register/**",
                         "/forgot-password/**",
-                        "/games/**"
+                        "/rest-register/**",
+                        "/rest-forgot-password/**"
                 )
                 .permitAll()
                 .anyRequest()
@@ -49,7 +50,8 @@ public class Security {
                         .usernameParameter("email")
                         .passwordParameter("password")
                 .defaultSuccessUrl("/home", true)
-                .permitAll()).logout(logout -> logout
+                .permitAll())
+                .logout(logout -> logout
                 .invalidateHttpSession(true)
                 .clearAuthentication(true)
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
