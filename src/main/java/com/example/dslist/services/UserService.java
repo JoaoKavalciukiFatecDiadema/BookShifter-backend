@@ -1,5 +1,6 @@
 package com.example.dslist.services;
 
+
 import com.example.dslist.dto.RegisterUserDTO;
 
 import com.example.dslist.dto.UserDTO;
@@ -7,6 +8,7 @@ import com.example.dslist.entities.Role;
 import com.example.dslist.entities.User;
 import com.example.dslist.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
 import org.springframework.security.crypto.password.PasswordEncoder;
