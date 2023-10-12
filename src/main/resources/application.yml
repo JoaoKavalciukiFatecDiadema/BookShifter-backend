@@ -3,21 +3,21 @@
 server:
     port: 8080
 spring:
-    #creiar db na fatec antes de rodar
+    #criar db na fatec antes de rodar
     datasource:
         url: jdbc:mysql://localhost:3306/testdb
-        #username: colocar da fatec
-        #password: colcar da fatec
+        username: root
+        password: 465112SQL_
         driver-class-name:
     jpa:
         hibernate:
-            ddl-auto: none
+            ddl-auto: create-drop
         show-sql: true
     mail:
         host: smtp.gmail.com
         port: 587
-        #username: email bookshifter
-        #password: pegar no notion do Jo�o
+        username:
+        password:
         properties:
             mail:
                 smtp:
@@ -32,3 +32,7 @@ logging:
         org:
             springframework:
                 security: DEBUG
+api:
+    security:
+        token:
+            secret:
